@@ -13,8 +13,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Nut Tool - About</title>
+    <meta name="description" content="Cool Nut Tool is made by Matt, an engineer and mediocre climber from Santa Cruz, CA. Wholesale and custom designs available.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cool Nut Tool">
+    <meta property="og:title" content="Cool Nut Tool - About">
+    <meta property="og:description" content="Cool Nut Tool is made by Matt, an engineer and mediocre climber from Santa Cruz, CA. Wholesale and custom designs available.">
+    <meta property="og:url" content="https://coolnuttool.com/pages/about.html">
+    <meta property="og:image" content="https://coolnuttool.com/image/product/send_it_p_edebe4.jpeg">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="../styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -44,7 +52,8 @@
                 <br>
 
                 <h2 class="about-title">contact</h2>
-                <p class="product-details">matt (at) casslabs (dot) xyz</p>
+                <p class="product-details"><span class="email" data-user="matt" data-domain="casslabs.xyz">matt (at) casslabs (dot) xyz</span></p>
+                <p class="product-details"><a class="text-link" href="https://www.instagram.com/coolnuttool/" target="_blank" rel="noopener">@coolnuttool</a></p>
             </div>
             <div class="about-image">
                 <img src="../image/about_image.jpg" alt="About Cool Nut Tool">
@@ -56,7 +65,20 @@
         </div>
     </main>
     <footer>
+        <a href="https://www.instagram.com/coolnuttool/" class="footer-link" target="_blank" rel="noopener">instagram</a>
         <a href="terms.html" class="footer-link">terms of use</a>
     </footer>
+
+    <script>
+    // Build the mailto link here so the address isn't sitting in the HTML for scrapers
+    document.querySelectorAll('.email').forEach(el => {
+        const address = el.dataset.user + '@' + el.dataset.domain;
+        const link = document.createElement('a');
+        link.href = 'mailto:' + address;
+        link.textContent = address;
+        link.className = 'text-link';
+        el.replaceWith(link);
+    });
+    </script>
 </body>
 </html>

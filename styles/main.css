@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400&display=swap');
 /* @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400&display=swap'); */
 
 
@@ -33,6 +33,7 @@
 
 html {
   font-family: 'Roboto Mono';
+  font-weight: 200;
   color: #000000; /* Text color */
   background-color: #f7f6f2; /* Background color */
 }
@@ -40,6 +41,33 @@ html {
 :root{
   --purple: #B13CAD;
   --purple-hover: #9C3297;
+}
+
+h1, h2 {
+  font-weight: 300;
+}
+
+/* Small text gets a regular weight so it stays legible */
+.product-price,
+.shipping-note,
+.product-detail-spec,
+.swatch-label,
+.footer-link,
+.terms-updated,
+.terms-text,
+.terms-list {
+  font-weight: 400;
+}
+
+.text-link {
+  color: var(--purple);
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--purple-hover);
+  text-decoration: underline;
 }
 
 header {
@@ -199,6 +227,10 @@ main {
     font-size: 24px; /* Slightly smaller font size for mobile */
   }
 
+  .main-text h2 {
+    font-size: min(36px, calc((100vw - 40px) / 13.4)); /* Fit each line of the headline */
+  }
+
   .centered-image {
     width: 100%; /* Full width image on mobile */
     margin: 0; /* Remove margins */
@@ -238,6 +270,21 @@ main {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px; /* Add padding to sides for consistency */
+}
+
+@media (max-width: 768px) {
+  header {
+    padding-left: 0;
+  }
+
+  .header-container {
+    padding: 10px 20px;
+  }
+
+  /* Shrink the title on narrow phones so it stays on one line */
+  .header-title h1 {
+    font-size: min(36px, calc((100vw - 40px) / 8.2));
+  }
 }
 
 
@@ -288,11 +335,12 @@ main {
 
 .product-name {
     font-size: 14px;
+    font-weight: 300;
 }
 
 .product-price {
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .product-info:hover .product-price {
@@ -324,7 +372,7 @@ main {
 }
 
 .swatch.is-selected {
-    border: 2px solid rgba(0, 0, 0, 0.55);
+    box-shadow: 0 0 0 2px #f7f6f2, 0 0 0 3px rgba(0, 0, 0, 0.75);
 }
 
 @media (max-width: 768px) {
@@ -464,16 +512,17 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 28px;
 }
 
 .footer-link {
     font-size: 13px;
-    color: rgba(0, 0, 0, 0.45);
+    color: rgba(0, 0, 0, 0.6);
     text-decoration: none;
 }
 
 .footer-link:hover {
-    color: rgba(0, 0, 0, 0.55);
+    color: var(--purple);
 }
 
 /* Terms Page */
@@ -485,32 +534,32 @@ footer {
 
 .terms-title {
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 200;
     margin: 0 0 6px 0;
 }
 
 .terms-updated {
     font-size: 12px;
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.6);
     margin: 0 0 30px 0;
 }
 
 .terms-heading {
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 200;
     margin: 28px 0 8px 0;
 }
 
 .terms-text {
     font-size: 13px;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.7);
     margin: 0 0 8px 0;
     line-height: 1.6;
 }
 
 .terms-list {
     font-size: 13px;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.7);
     margin: 0 0 8px 0;
     padding-left: 20px;
     line-height: 1.6;
@@ -559,7 +608,7 @@ footer {
 
 .product-detail-name {
     font-size: 23px;
-    font-weight: 400;
+    font-weight: 200;
     margin: 0;
 }
 
@@ -577,13 +626,13 @@ footer {
 .shipping-note {
     font-size: 13px;
     font-style: italic;
-    color: rgba(0, 0, 0, 0.55);
+    color: rgba(0, 0, 0, 0.6);
     margin-left: 3px;
 }
 
 .product-detail-spec {
     font-size: 13px;
-    color: rgba(0, 0, 0, 0.55);
+    color: rgba(0, 0, 0, 0.6);
     margin: 0 0 4px 0;
 }
 
@@ -592,8 +641,8 @@ footer {
 }
 
 .swatch-label {
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.45);
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
     margin: 0;
 }
 
@@ -611,6 +660,16 @@ footer {
         flex-direction: column;
         width: 90%;
         gap: 30px;
+    }
+
+    .product-detail-info {
+        width: 100%;
+    }
+
+    .product-buy-btn {
+        align-self: stretch;
+        padding: 14px 36px;
+        font-size: 18px;
     }
 }
 

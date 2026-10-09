@@ -13,8 +13,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Nut Tool - Trad Mom</title>
+    <meta name="description" content="The Trad Mom cool nut tool. Anodized 7075-T6 aluminum, 45.6 grams, in purple or gold. $29 with free shipping.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cool Nut Tool">
+    <meta property="og:title" content="Cool Nut Tool - Trad Mom">
+    <meta property="og:description" content="The Trad Mom cool nut tool. Anodized 7075-T6 aluminum, 45.6 grams, in purple or gold. $29 with free shipping.">
+    <meta property="og:url" content="https://coolnuttool.com/pages/product_trad_mom.html">
+    <meta property="og:image" content="https://coolnuttool.com/image/product/trad_mom_p_edebe4.jpeg">
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="../styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -40,7 +48,7 @@
             <div class="product-detail-info">
                 <h2 class="product-detail-name">cool nut tool - trad mom</h2>
                 <p class="product-detail-price">$29 <span class="shipping-note">free shipping</span></p>
-                <p class="swatch-label">color</p>
+                <p class="swatch-label">color: <span class="swatch-name">purple</span></p>
                 <div class="swatches">
                     <button class="swatch is-selected" style="--swatch: #B13CAD" data-variant="p_edebe4" data-href="https://buy.stripe.com/14A4gAen94Yr4zJaHC3gk0a" aria-label="Purple"></button>
                     <button class="swatch" style="--swatch: #C5A44E" data-variant="g_edebe4" data-href="https://buy.stripe.com/28EbJ23Iv2Qj9U3dTO3gk09" aria-label="Gold"></button>
@@ -57,6 +65,7 @@
         </div>
     </main>
     <footer>
+        <a href="https://www.instagram.com/coolnuttool/" class="footer-link" target="_blank" rel="noopener">instagram</a>
         <a href="terms.html" class="footer-link">terms of use</a>
     </footer>
 
@@ -71,6 +80,7 @@
             buyBtn.href = btn.dataset.href;
             detail.querySelectorAll('.swatch').forEach(s => s.classList.remove('is-selected'));
             btn.classList.add('is-selected');
+            detail.querySelector('.swatch-name').textContent = btn.getAttribute('aria-label').toLowerCase();
         });
     });
 
