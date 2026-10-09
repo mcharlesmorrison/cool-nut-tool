@@ -327,6 +327,26 @@ main {
     border: 2px solid rgba(0, 0, 0, 0.55);
 }
 
+@media (max-width: 768px) {
+    .swatches {
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    .swatch {
+        width: 24px;
+        height: 24px;
+        position: relative;
+    }
+
+    /* Invisible padding so the tap target is 40px without a bigger dot */
+    .swatch::after {
+        content: "";
+        position: absolute;
+        inset: -8px;
+    }
+}
+
 /* Shop Grid Styles */
 .shop-grid {
     display: grid;
